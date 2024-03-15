@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickTock - Login Page</title>
+    <link rel="stylesheet" href="../css/loginStyles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Top navigation bar -->
+    <div class="hero">
+        <nav>
+            <a href="../index.html"><img src="../images/clock.png" class="logo"></a>
+            <ul>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="features.html">How it works</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <div>
+                <a href="login.html" class="login-button">Log in</a>
+                <a href="#" class="download-button">Download App</a>
+            </div>
+        </nav>
+    </div> 
+    <!-- Actual login box -->
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Remember me</intput></label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="register.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
