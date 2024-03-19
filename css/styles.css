@@ -70,9 +70,13 @@ nav ul li a{
 }
 
 .content p{
-    margin: 10px 0 30px;
+    margin: 10px 0 10px;
     color: #333;
     animation-delay: 0.5s;
+}
+
+.content ul {
+    margin-left: 40px;
 }
 
 .content .download-button{
