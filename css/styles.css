@@ -9,6 +9,7 @@
 .hero{
     width: 100%;
     min-height: 100vh;
+    height: auto;
     /* background-image: url(images/clock.png); */
     background-position: center;
     background-size: cover;
@@ -35,10 +36,15 @@ nav ul li{
     list-style: none;
     margin: 10px 15px;
 }
-nav ul li a{
+
+.nav-bar{
     text-decoration: none;
     color: #333;
     font-weight: 400;
+}
+
+.nav-bar:hover{
+    text-decoration: underline; 
 }
 
 .login-button{
@@ -46,6 +52,10 @@ nav ul li a{
     color: #333;
     margin-right: 15px;
     font-weight: 400;
+}
+
+.login-button:hover{
+    text-decoration: underline;
 }
 
 .download-button{
