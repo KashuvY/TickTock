@@ -1,6 +1,6 @@
 *{
     margin: 0;
-    padding: 0;
+    padding: 15px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -9,6 +9,7 @@
 .hero{
     width: 100%;
     min-height: 100vh;
+    height: auto;
     /* background-image: url(images/clock.png); */
     background-position: center;
     background-size: cover;
@@ -24,8 +25,10 @@ nav{
     justify-content: space-between;
 }
 
+/*Clock*/
 .logo{
     width: 140px;
+    height: auto;
 }
 
 nav ul li{
@@ -34,10 +37,14 @@ nav ul li{
     margin: 10px 15px;
 }
 
-nav ul li a{
+.nav-bar{
     text-decoration: none;
     color: #333;
     font-weight: 400;
+}
+
+.nav-bar:hover{
+    text-decoration: underline; 
 }
 
 .login-button{
@@ -45,6 +52,10 @@ nav ul li a{
     color: #333;
     margin-right: 15px;
     font-weight: 400;
+}
+
+.login-button:hover{
+    text-decoration: underline;
 }
 
 .download-button{
@@ -62,6 +73,7 @@ nav ul li a{
 .content{
     margin-top: 10%;
     max-width: 600px;
+    float: left;
 }
 
 .content h1{
@@ -73,6 +85,7 @@ nav ul li a{
     margin: 10px 0 10px;
     color: #333;
     animation-delay: 0.5s;
+    padding-right: 25px;
 }
 
 .content ul {
@@ -90,10 +103,10 @@ nav ul li a{
 }
 
 .feature-img{
-    width: 530px;
-    position: absolute;
-    bottom: 0;
-    right: 10%;
+    width: 30%;
+    margin-top: 6%;
+    height: auto;
+    float: right; 
 }
 .feature-img.animation{
     animation-delay: 1.5s;
