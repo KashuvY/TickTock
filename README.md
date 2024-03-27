@@ -22,6 +22,6 @@ TickTock is ideal for companies that want more information about what projects e
 
 [Chloe Nolan](https://github.com/chloekaii)
 
-Nico Gleason
+[Nico Gleason](https://github.com/ngleason31)
 
-Carter Kreis
+[Carter Kreis](https://github.com/CarterKreis)
