@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
-$employeeID = $_POST['employeeID'];
+$employeeID = $_POST['companyID'];
 //$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 $password = $_POST['password']; //no hash for now
 
@@ -27,7 +27,7 @@ if ($_POST['password'] !== $_POST['passwordRetype']) {
 }
 
 // SQL query to insert data
-$sql = "INSERT INTO users (first_name, last_name, email, employee_id, password) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO users (FirstName, LastName, Email, companyID, Password) VALUES (?, ?, ?, ?, ?)";
 
 // Prepare statement
 $stmt = $conn->prepare($sql);

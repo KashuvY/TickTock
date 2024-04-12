@@ -1,13 +1,13 @@
-CREATE DATABASE IF NOT EXISTS TimeTracker; 
-USE TimeTracker;
+CREATE DATABASE IF NOT EXISTS userDatabase; 
+USE userDatabase;
 
-CREATE TABLE User (
+CREATE TABLE users (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
     Email VARCHAR(100) UNIQUE,
     Password VARCHAR(255),
-    EmployeeID INT
+    companyID INT
 );
 
 CREATE TABLE Role (
