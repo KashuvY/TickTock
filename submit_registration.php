@@ -18,8 +18,8 @@ $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
 $companyID = $_POST['companyID'];
-//$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
-$password = $_POST['password']; //no hash for now
+//$password = $_POST['password']; //no hash for now
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 $accessLevel = 0; // everyone gets set to regular employee, permissions get set after
 
 // Verify password retype matches
