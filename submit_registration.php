@@ -20,6 +20,7 @@ $email = $_POST['email'];
 $companyID = $_POST['companyID'];
 //$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 $password = $_POST['password']; //no hash for now
+$accessLevel = 0; // everyone gets set to regular employee, permissions get set after
 
 // Verify password retype matches
 if ($_POST['password'] !== $_POST['passwordRetype']) {
@@ -27,13 +28,13 @@ if ($_POST['password'] !== $_POST['passwordRetype']) {
 }
 
 // SQL query to insert data
-$sql = "INSERT INTO users (FirstName, LastName, Email, companyID, Password) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO users (FirstName, LastName, Email, companyID, Password, AccessLevel) VALUES (?, ?, ?, ?, ?, ?)";
 
 // Prepare statement
 $stmt = $conn->prepare($sql);
 
 // Bind parameters and execute
-$stmt->bind_param("sssis", $firstName, $lastName, $email, $companyID, $password);
+$stmt->bind_param("sssisi", $firstName, $lastName, $email, $companyID, $password, $accessLevel);
 if ($stmt->execute()) {
     echo "New record created successfully";
     header('Location: /TickTock/pages/login.html');

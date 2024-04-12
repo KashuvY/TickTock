@@ -7,14 +7,8 @@ CREATE TABLE users (
     LastName VARCHAR(50),
     Email VARCHAR(100) UNIQUE,
     Password VARCHAR(255),
-    companyID INT
-);
-
-CREATE TABLE UserRole (
-    UserID INT,
-    RoleID INT,
-    FOREIGN KEY (UserID) REFERENCES users(UserID),
-    CHECK (RoleID IN (0, 1, 2))
+    companyID INT,
+    AccessLevel INT
 );
 
 CREATE TABLE Project ( 
