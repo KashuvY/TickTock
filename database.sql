@@ -10,24 +10,18 @@ CREATE TABLE users (
     companyID INT
 );
 
-CREATE TABLE Role (
-    RoleID INT AUTO_INCREMENT PRIMARY KEY,
-    RoleName VARCHAR(50)
-)
-
-CREATE TABLE UserRole ( 
-    UserRoleID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE UserRole (
     UserID INT,
     RoleID INT,
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (RoleID) REFERENCES Role(RoleID)
-)
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    CHECK (RoleID IN (0, 1, 2))
+);
 
 CREATE TABLE Project ( 
     ProjectID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(200),
     Description VARCHAR(1000)
-)
+);
 
 CREATE TABLE TimeEntry (
     TimeEntryID INT AUTO_INCREMENT PRIMARY KEY,
@@ -35,17 +29,16 @@ CREATE TABLE TimeEntry (
     ProjectID INT,
     ClockInTime DATETIME,
     ClockOutTime DATETIME,
-    Description VARCHAR(1000), 
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
-    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID),
+    Description VARCHAR(1000),
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
 );
-
 
 CREATE TABLE ProjectAssignment (
     ProjectAssignmentID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
     ProjectID INT,
-    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
     FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
 );
 

@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
-$employeeID = $_POST['companyID'];
+$companyID = $_POST['companyID'];
 //$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
 $password = $_POST['password']; //no hash for now
 
@@ -33,7 +33,7 @@ $sql = "INSERT INTO users (FirstName, LastName, Email, companyID, Password) VALU
 $stmt = $conn->prepare($sql);
 
 // Bind parameters and execute
-$stmt->bind_param("sssii", $firstName, $lastName, $email, $employeeID, $password);
+$stmt->bind_param("sssis", $firstName, $lastName, $email, $companyID, $password);
 if ($stmt->execute()) {
     echo "New record created successfully";
     header('Location: /TickTock/pages/login.html');
