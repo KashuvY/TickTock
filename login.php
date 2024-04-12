@@ -14,40 +14,48 @@ if ($conn->connect_error) {
 }
 
 // Retrieve form data
-$username = $_POST['email'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
-// SQL query to check if the username and password match a record in the users table
-$sql = "SELECT * FROM users WHERE Email = ? AND Password = ?";
+// SQL query to retrieve the user with the provided email
+$sql = "SELECT * FROM users WHERE Email = ?";
 
 // Prepare statement
 $stmt = $conn->prepare($sql);
 
-// Bind parameters and execute
-$stmt->bind_param("ss", $username, $password);
+// Bind parameter and execute
+$stmt->bind_param("s", $email);
 $stmt->execute();
 
 // Get the result
 $result = $stmt->get_result();
 
-// Check if a matching record is found
+// Check if a matching user is found
 if ($result->num_rows === 1) {
-    // Login successful, store user information in session variables
+    // User found, verify the password
     $user = $result->fetch_assoc();
-    session_start();
-    $_SESSION['UserID'] = $user['UserID'];
-    $_SESSION['FirstName'] = $user['FirstName'];
-    $_SESSION['LastName'] = $user['LastName'];
-    $_SESSION['Email'] = $user['Email'];
-    $_SESSION['CompanyID'] = $user['companyID'];
-    $_SESSION['AccessLevel'] = $user['AccessLevel'];
+    $storedPassword = $user['Password'];
 
-    // Redirect to the user information page
-    header("Location: user_info.php");
-    exit();
+    if (password_verify($password, $storedPassword)) {
+        // Password is correct, store user information in session variables
+        session_start();
+        $_SESSION['UserID'] = $user['UserID'];
+        $_SESSION['FirstName'] = $user['FirstName'];
+        $_SESSION['LastName'] = $user['LastName'];
+        $_SESSION['Email'] = $user['Email'];
+        $_SESSION['CompanyID'] = $user['companyID'];
+        $_SESSION['AccessLevel'] = $user['AccessLevel'];
+
+        // Redirect to the user information page
+        header("Location: user_info.php");
+        exit();
+    } else {
+        // Password is incorrect
+        echo "Invalid email or password";
+    }
 } else {
-    // Login failed, display an error message or redirect back to the login page
-    echo "Invalid username or password";
+    // User not found
+    echo "Invalid email or password";
 }
 
 // Close statement and connection
