@@ -3,30 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features</title>
+    <title>Employee Timelogs</title>
     <link rel="stylesheet" href="../css/UserStyles.css">
 </head>
 <body>
     <!-- Top navigation bar -->
-    <div class="hero">
+    <div class="nav-bar">
         <nav>
             <a href="../index.html"><img src="../images/clock.png" class="logo"></a>
             <ul>
                 <!-- Unsure of how to make them return to Post login page relative
                      to what account clearance they have-->
-                <li><a href="UserTimelogs.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="features.html">How it works</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
             </ul>
             <div>
                 <a href="login.html" class="login-button">Log in</a>
                 <a href="#" class="download-button">Download App</a>
             </div>
         </nav>
-        <!-- Page Text -->
-        <div>
-            <h5>
-                User selects which project they want to view. Then timelogs for that project appear.
-            </h5>
+    </div> 
+
+    <!-- Page Content -->
+    <div class="content">
+        <h1>Employee Timelogs</h1>
+        <p>Select a project to view timelogs:</p>
+        <!-- Assuming you have a dropdown or some other UI element for project selection -->
+        <select id="projectSelection">
+            <option>Select</option>
+            <option value="project1">Project 1</option>
+            <option value="project2">Project 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        
+        <!-- Here you can display the timelogs for the selected project -->
+        <div id="timelogs">
+            <!-- Timelogs for the selected project will be displayed here -->
         </div>
+    </div>
+
+    <!-- Page Text -->
+    <div>
+        <h5>
+            Select which project(s) to view.
+        </h5>
     </div> 
 </body>
 </html>
