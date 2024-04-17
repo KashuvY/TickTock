@@ -36,3 +36,12 @@ CREATE TABLE ProjectAssignment (
     FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
 );
 
+CREATE TABLE IF NOT EXISTS edit_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    date DATE,
+    reason TEXT,
+    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending'
+);
+
+

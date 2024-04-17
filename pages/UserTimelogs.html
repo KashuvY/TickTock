@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Timelogs</title>
     <link rel="stylesheet" href="../css/UserStyles.css">
+    <style>
+        /* Add modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <!-- Top navigation bar -->
@@ -41,14 +78,75 @@
         <div id="timelogs">
             <!-- Timelogs for the selected project will be displayed here -->
         </div>
+
+        <!-- "Request Edit" Button -->
+        <button id="editRequestBtn">Request Edit</button>
+
+        <!-- Modal for edit request form -->
+        <div id="editRequestModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Time Log Request</h2>
+                <form id="editRequestForm">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required><br><br>
+                    <label for="reason">Reason for Edit:</label><br>
+                    <textarea id="reason" name="reason" rows="4" cols="50" required></textarea><br><br>
+                    <input type="submit" value="Submit Request">
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Page Text -->
-        <div>
-            <h5>
-                Select which project(s) to view.
-            </h5>
-        </div> 
+    <div>
+        <h5>
+            Select which project(s) to view.
+        </h5>
+    </div> 
     </div>
+
+    <!-- JavaScript for the modal functionality -->
+    <script>
+        var modal = document.getElementById("editRequestModal");
+        var btn = document.getElementById("editRequestBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // JavaScript code for handling form submission
+        document.getElementById("editRequestForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch("/edit-request", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Edit request submitted successfully!");
+                    modal.style.display = "none";
+                } else {
+                    throw new Error("Network response was not ok.");
+                }
+            })
+            .catch(error => {
+                console.error("Error submitting edit request:", error);
+                alert("Failed to submit edit request. Please try again later.");
+            });
+        });
+    </script>
 </body>
 </html>
