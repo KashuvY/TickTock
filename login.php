@@ -1,9 +1,9 @@
 <?php
 // Database connection info
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'userDatabase';
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "userDatabase";
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -47,8 +47,24 @@ if ($result->num_rows === 1) {
         $_SESSION['AccessLevel'] = $user['AccessLevel'];
 
         // Redirect to the user information page
-        header("Location: user_info.php");
-        exit();
+        switch ($_SESSION['AccessLevel']) {
+            case 0:
+                header("Location: pages/employee.html");
+                exit();
+                break;
+            case 1:
+                header("Location: pages/manager.html");
+                exit();
+                break;
+            case 2:
+                header("Location: pages/admin.html");
+                exit();
+                break;
+            default:
+                // Redirect to a default page if access level is not recognized
+                echo "Access level not recognized";
+                exit();
+        }
     } else {
         // Password is incorrect
         echo "Invalid email or password";
