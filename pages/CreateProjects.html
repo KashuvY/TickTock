@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TickTock - Create Project Page</title>
+    <link rel="stylesheet" href="../css/loginStyles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Top navigation bar -->
+    <div class="hero">
+        <nav>
+            <a href="../index.html"><img src="../images/clock.png" class="logo"></a>
+            <ul>
+                <li><a href="features.html" class="nav-bar">Features</a></li>
+                <li><a href="features.html" class="nav-bar">How it works</a></li>
+                <li><a href="privacy.html" class="nav-bar">Privacy</a></li>
+            </ul>
+            <div>
+                <a href="login.html" class="login-button">Log in</a>
+                <a href="#" class="download-button">Download App</a>
+            </div>
+        </nav>
+    </div> 
+     <!-- Actual login box -->
+    <div class="wrapper">
+        <form action="../create_project.php" method="post" value="submit">
+            <h1>Create Project</h1>
+            <div class="input-box">
+                <input type="text" name="projectName" placeholder="Project Name" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box" style="margin-bottom: 200px;">
+                <textarea name="projectDescription" placeholder="Project Description" rows="10" required></textarea>
+                <i class='bx bxs-user'></i>
+            </div>
+            <button type="submit" class="login-button">Create Project</button>
+        </form>
+    </div>
+</body>
+</html>

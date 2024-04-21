@@ -18,7 +18,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // SQL query to retrieve the user with the provided email
-$sql = "SELECT * FROM users WHERE Email = ?";
+$sql = "SELECT * FROM users WHERE email = ?";
 
 // Prepare statement
 $stmt = $conn->prepare($sql);
@@ -34,17 +34,17 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     // User found, verify the password
     $user = $result->fetch_assoc();
-    $storedPassword = $user['Password'];
+    $storedPassword = $user['password'];
 
     if (password_verify($password, $storedPassword)) {
         // Password is correct, store user information in session variables
         session_start();
-        $_SESSION['UserID'] = $user['UserID'];
-        $_SESSION['FirstName'] = $user['FirstName'];
-        $_SESSION['LastName'] = $user['LastName'];
-        $_SESSION['Email'] = $user['Email'];
-        $_SESSION['CompanyID'] = $user['companyID'];
-        $_SESSION['AccessLevel'] = $user['AccessLevel'];
+        $_SESSION['UserID'] = $user['user_id'];
+        $_SESSION['FirstName'] = $user['first_name'];
+        $_SESSION['LastName'] = $user['last_name'];
+        $_SESSION['Email'] = $user['email'];
+        $_SESSION['CompanyID'] = $user['company_id'];
+        $_SESSION['AccessLevel'] = $user['access_level'];
 
         // Redirect to the user information page
         switch ($_SESSION['AccessLevel']) {
