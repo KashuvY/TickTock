@@ -1,38 +1,30 @@
-CREATE DATABASE IF NOT EXISTS userDatabase; 
+CREATE DATABASE IF NOT EXISTS userDatabase;
 USE userDatabase;
 
 CREATE TABLE users (
-    UserID INT AUTO_INCREMENT PRIMARY KEY,
-    FirstName VARCHAR(50),
-    LastName VARCHAR(50),
-    Email VARCHAR(100) UNIQUE,
-    Password VARCHAR(255),
-    companyID INT,
-    AccessLevel INT
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    company_id INT,
+    access_level INT
 );
 
-CREATE TABLE Project ( 
-    ProjectID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(200),
-    Description VARCHAR(1000)
+CREATE TABLE projects (
+    project_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200),
+    description VARCHAR(1000),
+    user_access JSON
 );
 
-CREATE TABLE TimeEntry (
-    TimeEntryID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    ProjectID INT,
-    ClockInTime DATETIME,
-    ClockOutTime DATETIME,
-    Description VARCHAR(1000),
-    FOREIGN KEY (UserID) REFERENCES users(UserID),
-    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+CREATE TABLE time_entries (
+    time_entry_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    project_id INT,
+    clock_in_time DATETIME,
+    clock_out_time DATETIME,
+    description VARCHAR(1000),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (project_id) REFERENCES projects(project_id)
 );
-
-CREATE TABLE ProjectAssignment (
-    ProjectAssignmentID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT,
-    ProjectID INT,
-    FOREIGN KEY (UserID) REFERENCES users(UserID),
-    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
-);
-
