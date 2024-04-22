@@ -20,6 +20,7 @@
             </div>
         </nav>
     <form action="../edit_project.php" method="POST"> <!-- Form added -->
+    <
     <table>
         <th>Project ID</th>
         <th>Project Title</th>
@@ -27,16 +28,13 @@
         <th>User Access</th>
 
         <?php 
-        // Database connection info
         $host = "localhost";
         $username = "root";
         $password = "";
         $dbname = "userDatabase";
 
-        // Create connection
         $conn = new mysqli($host, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -44,6 +42,7 @@
         $sql = "SELECT * FROM projects";
         $result = $conn->query($sql);
 
+        //dynamically displays the projects stored in the database
         if ($result->num_rows > 0) {
             while ($row = $result-> fetch_assoc()) {
                 echo "<tr>";
