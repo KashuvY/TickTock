@@ -20,8 +20,9 @@
             </div>
         </nav>
     <form action="../edit_project.php" method="POST"> <!-- Form added -->
-        <h5>When allowing users to access projects, please insert their employee id into the array. Separate different users with commas. 
-            For example: [1, 3, 5] would allow employees with the ids 1, 3, and 5 to access the project.
+        <h5>When allowing users to access projects, please insert their employee id into the array. Separate different users with commas.<br>
+            For example: [1, 3, 5] would allow employees with the ids 1, 3, and 5 to access the project.<br>
+            To see a list of all employees and associated employee ids, click <a href="ViewEmployees.php">here</a>.
         </h5>
         <table>
             <th>Project ID</th>
