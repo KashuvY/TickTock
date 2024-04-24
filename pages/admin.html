@@ -17,10 +17,15 @@
                 <li><a href="UserTimelogs.html" class="nav-bar">Personal Logs</a></li>
                 <li><a href="ManageUsers.html" class="nav-bar">Manage Users</a></li>
                 <li><a href="ManageProjects.html" class="nav-bar">Manage Projects</a></li>
+                <li><a href="CreateProjects.html" class="nav-bar">Create Projects</a></li>
             </ul>
             <div>
                 <!-- No functionality for actual Sign Out button -->
-                <a href="#" class="download-button">Sign Out</a>
+                <!-- <a href="#" class="download-button">Sign Out</a> -->
+                <!-- Logout button that works but doesnt look as nice -->
+                <form action="../logout.php" method="post">  
+                    <input type="submit" name="logout" value="Logout"> 
+                </form> 
             </div>
         </nav>
         <div class="project-select">
@@ -31,9 +36,12 @@
                 <option value="3">Project 3</option>
             </select>
         </div>
-        <div class="content">
-            <a href="#" class="download-button animation">Clock In</a>
-        </div>
+        <!-- <div class="content">
+            <a href="../logout.php" class="download-button">Sign Out</a>
+        </div> -->
+        <form action="../logout.php" method="post"> 
+            <input type="submit" name="logout" value="Logout"> 
+        </form> 
         <div>
             <!-- Chart here that shows their hours for the week -->
         </div>

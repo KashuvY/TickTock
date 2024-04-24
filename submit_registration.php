@@ -1,9 +1,9 @@
 <?php
 // Database connection info
-$host = 'localhost'; // Host name, usually 'localhost' for XAMPP
-$username = 'root'; // Default XAMPP MySQL username is 'root'
-$password = ''; // Default XAMPP MySQL password is empty
-$dbname = 'userDatabase'; // Your database name
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'userDatabase';
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -17,9 +17,9 @@ if ($conn->connect_error) {
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $email = $_POST['email'];
-$employeeID = $_POST['employeeID'];
-//$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
-$password = $_POST['password']; //no hash for now
+$companyID = $_POST['companyID'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
+$accessLevel = 0; // everyone gets set to regular employee, permissions get set after
 
 // Verify password retype matches
 if ($_POST['password'] !== $_POST['passwordRetype']) {
@@ -27,13 +27,14 @@ if ($_POST['password'] !== $_POST['passwordRetype']) {
 }
 
 // SQL query to insert data
-$sql = "INSERT INTO users (first_name, last_name, email, employee_id, password) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO users (first_name, last_name, email, company_id, password, access_level) VALUES (?, ?, ?, ?, ?, ?)";
 
 // Prepare statement
 $stmt = $conn->prepare($sql);
 
 // Bind parameters and execute
-$stmt->bind_param("sssii", $firstName, $lastName, $email, $employeeID, $password);
+$stmt->bind_param("sssisi", $firstName, $lastName, $email, $companyID, $password, $accessLevel);
+
 if ($stmt->execute()) {
     echo "New record created successfully";
     header('Location: /TickTock/pages/login.html');
