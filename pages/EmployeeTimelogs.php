@@ -131,7 +131,7 @@
                     // Display the user timelogs
                     while ($user = $result->fetch_assoc()) {
                         // Retrieve timelogs for the user and selected project
-                        $sql = "SELECT p.name AS project_name, te.clock_in_time, te.clock_out_time
+                        $sql = "SELECT p.name AS project_name, te.clock_in_time, te.clock_out_time, te.description
                                 FROM time_entries te
                                 JOIN projects p ON te.project_id = p.project_id
                                 WHERE te.user_id = ? AND te.project_id = ?";
@@ -148,7 +148,7 @@
 
                             // Display the timelogs for the user
                             while ($timelog = $timelogResult->fetch_assoc()) {
-                                echo "<p>" . $timelog['project_name'] . ": Clock In: " . $timelog['clock_in_time'] . ", Clock Out: " . ($timelog['clock_out_time'] ?: 'N/A') . "</p>";
+                                echo "<p>" . $timelog['project_name'] . ": Clock In: " . $timelog['clock_in_time'] . ", Clock Out: " . ($timelog['clock_out_time'] ?: 'N/A') . ", Description: " . ($timelog['description'] ?: 'N/A') . "</p>";
                             }
 
                             echo "<hr>";
