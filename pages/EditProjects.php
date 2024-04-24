@@ -12,7 +12,7 @@
         <nav>
             <a href="../index.html"><img src="../images/clock.png" class="logo"></a>
             <ul>
-                <li><a href="admin.html">Clock In</a></li>
+                <li><a href="admin.php" class="nav-bar">Dashboard</a></li>
             </ul>
             <div>
                 <a href="login.html" class="login-button">Log in</a>

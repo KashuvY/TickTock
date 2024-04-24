@@ -32,5 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Close connection
+header("Location: pages/EditProjects.php");
 $conn->close();
 ?>

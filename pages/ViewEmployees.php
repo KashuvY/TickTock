@@ -13,10 +13,9 @@
         <nav>
             <img src="../images/clock.png" class="logo">
             <ul>
-                <li><a href="EmployeeTimelogs.html" class="nav-bar">Employee Logs</a></li>
-                <li><a href="UserTimelogs.html" class="nav-bar">Personal Logs</a></li>
-                <li><a href="ManageUsers.html" class="nav-bar">Manage Users</a></li>
-                <li><a href="ManageProjects.html" class="nav-bar">Manage Projects</a></li>
+                <li><a href="EmployeeTimelogs.php" class="nav-bar">Employee Logs</a></li>
+                <li><a href="UserTimelogs.php" class="nav-bar">Personal Logs</a></li>
+                <li><a href="EditProjects.php" class="nav-bar">Manage Projects</a></li>
                 <li><a href="CreateProjects.html" class="nav-bar">Create Projects</a></li>
             </ul>
             <div>

@@ -49,15 +49,15 @@ if ($result->num_rows === 1) {
         // Redirect to the user information page
         switch ($_SESSION['AccessLevel']) {
             case 0:
-                header("Location: pages/employee.html");
+                header("Location: pages/employee.php");
                 exit();
                 break;
             case 1:
-                header("Location: pages/manager.html");
+                header("Location: pages/manager.php");
                 exit();
                 break;
             case 2:
-                header("Location: pages/admin.html");
+                header("Location: pages/admin.php");
                 exit();
                 break;
             default:
