@@ -31,6 +31,6 @@ $stmt->close();
 $conn->close();
 
 // Redirect back to the admin page
-header("Location: pages/admin.html");
+header("Location: pages/admin.php");
 exit();
 ?>
