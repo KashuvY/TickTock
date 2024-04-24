@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
+/* Style for Top navigation bar */
 .hero{
     width: 100%;
     min-height: 100vh;
@@ -43,10 +43,12 @@ nav ul li{
     font-weight: 400;
 }
 
+/*When hovering over navigation bar, it is underlined*/
 .nav-bar:hover{
     text-decoration: underline; 
 }
 
+/* Style for Login Button */
 .login-button{
     text-decoration: none;
     color: #333;
@@ -54,10 +56,12 @@ nav ul li{
     font-weight: 400;
 }
 
+/*When hovering over login button, it is underlined*/
 .login-button:hover{
     text-decoration: underline;
 }
 
+/* Style for Download button */
 .download-button{
     display: inline-block;
     text-decoration: none;
@@ -112,6 +116,7 @@ nav ul li{
     animation-delay: 1.5s;
 }
 
+/* This animation moves the object upwards */
 .animation{
     opacity: 0;
     transform: translateY(30px);

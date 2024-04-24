@@ -18,13 +18,23 @@ CREATE TABLE projects (
     user_access JSON
 );
 
-CREATE TABLE time_entries (
-    time_entry_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    project_id INT,
-    clock_in_time DATETIME,
-    clock_out_time DATETIME,
-    description VARCHAR(1000),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (project_id) REFERENCES projects(project_id)
+CREATE TABLE TimeEntry (
+    TimeEntryID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT,
+    ProjectID INT,
+    ClockInTime DATETIME,
+    ClockOutTime DATETIME,
+    Description VARCHAR(1000), 
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID),
 );
+
+
+CREATE TABLE ProjectAssignment (
+    ProjectAssignmentID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT,
+    ProjectID INT,
+    FOREIGN KEY (UserID) REFERENCES User(UserID),
+    FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID)
+);
+

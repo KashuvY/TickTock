@@ -14,6 +14,7 @@ body{
     background: linear-gradient(45deg, #000000, #c8c1c9);
 }
 
+/* Style for Top navigation bar */
 .hero{
     width: 100%;
     height: auto;
@@ -32,6 +33,7 @@ nav{
     justify-content: space-between;
 }
 
+/*Clock*/
 .logo{
     width: 140px;
     height: auto;
@@ -49,10 +51,12 @@ nav ul li{
     font-weight: 400;
 }
 
+/*When hovering over navigation bar, it is underlined*/
 .nav-bar:hover{
     text-decoration: underline;
 }
 
+/* Style for Login Button */
 .login-button{
     text-decoration: none;
     color: #333;
@@ -60,10 +64,12 @@ nav ul li{
     font-weight: 400;
 }
 
+/*When hovering over login button, it is underlined*/
 .login-button:hover{
     text-decoration: underline;
 }
 
+/* Style for Download button */
 .download-button{
     display: inline-block;
     text-decoration: none;
@@ -76,11 +82,12 @@ nav ul li{
     transition: 0.5s;
 }
 
+/* Hovering over download button makes top right corner rounded*/
 .download-button:hover{
     border-top-right-radius: 30px;
 }
 
-
+/* Styles for Login Box */
 .wrapper{
     width: 420px;
     margin-left: auto;
@@ -107,6 +114,7 @@ nav ul li{
     color: black;
 }
 
+/* For input box text lines, i.e. Email and Password*/
 .input-box input{
     width: 100%;
     height: 100%;
@@ -132,6 +140,7 @@ nav ul li{
     font-size: 20px;
 }
 
+/* Styles for Remember Me or Forgot Password */
 .wrapper .remember-forgot{
     display: flex;
     justify-content: space-between;
@@ -153,6 +162,7 @@ nav ul li{
     text-decoration: underline;
 }
 
+/* Login Button */
 .wrapper .login-button{
     width: 100%;
     height: 45px;
@@ -167,6 +177,7 @@ nav ul li{
     font-weight: 600;
 }
 
+/* Register Link Button */
 .wrapper .register-link{
     font-size: 14.5px;
     text-align: center;
