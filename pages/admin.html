@@ -28,13 +28,53 @@
                 </form> 
             </div>
         </nav>
-        <div class="project-select">
-            <select>
-                <option value="0">Select Project:</option>
-                <option value="1">Project 1</option>
-                <option value="2">Project 2</option>
-                <option value="3">Project 3</option>
-            </select>
+        <div>
+            <form action="clock_in.php" method="post">
+                <select name="project_id" required>
+                    <option value="">Select Project</option>
+                    <?php
+                    // Retrieve projects the user has access to from the database
+                    $user_id = $_SESSION['UserID'];
+                    
+                    // Database connection info
+                    $host = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "userDatabase";
+                    
+                    // Create connection
+                    $conn = new mysqli($host, $username, $password, $dbname);
+                    
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    
+                    // SQL query to retrieve projects the user has access to
+                    $sql = "SELECT project_id, name FROM projects WHERE JSON_CONTAINS(user_access, ?)";
+                    
+                    // Prepare statement
+                    $stmt = $conn->prepare($sql);
+                    
+                    // Bind parameter and execute
+                    $stmt->bind_param("s", $user_id);
+                    $stmt->execute();
+                    
+                    // Get the result
+                    $result = $stmt->get_result();
+                    
+                    // Loop through the projects and create options
+                    while ($project = $result->fetch_assoc()) {
+                        echo "<option value='" . $project['project_id'] . "'>" . $project['name'] . "</option>";
+                    }
+                    
+                    // Close statement and connection
+                    $stmt->close();
+                    $conn->close();
+                    ?>
+                </select>
+                <input type="submit" name="clock_in" value="Clock In">
+            </form>
         </div>
         <!-- <div class="content">
             <a href="../logout.php" class="download-button">Sign Out</a>
