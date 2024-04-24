@@ -40,7 +40,6 @@ CREATE TABLE TimeEntry (
     FOREIGN KEY (ProjectID) REFERENCES Project(ProjectID),
 );
 
-
 CREATE TABLE ProjectAssignment (
     ProjectAssignmentID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
